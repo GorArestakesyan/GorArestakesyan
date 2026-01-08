@@ -17,7 +17,7 @@
 - 👨‍💻 All of my projects are available [**here**](https://www.notion.so/Projects-Portfolio-Gor-Arestakesyan-2b48806d3359802181f2f1c0888d37fe)
 - 📫 How to reach me:
   - **Gmail:** gorarestakesyan0@gmail.com
-  - **LinkedIn:** linkedin.com/in/gor-arestakesyan
+  - **LinkedIn:** [linkedin.com/in/gor-arestakesyan](https://www.linkedin.com/in/gor-arestakesyan/)
 
 <h3 align="left">Languages and Tools:</h3>
 <p align="left">
