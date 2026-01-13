@@ -18,7 +18,7 @@ export const experiences: Experience[] = [
   {
     title: "Full Stack Developer",
     company: "Nutreva AI",
-    period: "Sep 2025 – Dec 2025",
+    period: "Sep 2025 – Present",
     categories: ["AI", "Health Tech", "Fitness Tech"],
     achievements: [
       "Built real-time post creation using Supabase cron jobs, improving content update speed by 40%.",
