@@ -79,7 +79,7 @@ export default function Navigation() {
           GA
         </a>
         <ul className={`nav-menu ${isMenuOpen ? "active" : ""}`}>
-          {navItems.map((item) => (
+          {NAV_ITEMS.map((item) => (
             <li key={item.id}>
               <a
                 href={`#${item.id}`}
