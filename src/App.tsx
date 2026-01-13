@@ -1,25 +1,16 @@
-import { useEffect } from 'react';
-import Navigation from './components/Navigation';
-import Hero from './components/Hero';
-import About from './components/About';
-import Experience from './components/Experience';
-import Education from './components/Education';
-import Skills from './components/Skills';
-import Contact from './components/Contact';
-import { useTheme } from './hooks/useTheme';
-import './App.css';
+import Navigation from "./components/Navigation";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Experience from "./components/Experience";
+import Education from "./components/Education";
+import Skills from "./components/Skills";
+import Contact from "./components/Contact";
+import { useTheme } from "./hooks/useTheme";
+import { PERSONAL_INFO } from "./constants";
+import "./App.css";
 
 function App() {
-  const { theme } = useTheme();
-
-  useEffect(() => {
-    // Apply theme class on mount
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [theme]);
+  useTheme(); // Initialize theme
 
   return (
     <div className="App">
@@ -34,7 +25,10 @@ function App() {
       </main>
       <footer className="footer">
         <div className="container">
-          <p>&copy; {new Date().getFullYear()} Gor Arestakesyan. All rights reserved.</p>
+          <p>
+            &copy; {PERSONAL_INFO.COPYRIGHT_YEAR} {PERSONAL_INFO.NAME}. All
+            rights reserved.
+          </p>
         </div>
       </footer>
     </div>

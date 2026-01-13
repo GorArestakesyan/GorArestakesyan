@@ -1,31 +1,50 @@
 import { useState, useEffect } from "react";
-
-type Theme = "light" | "dark";
+import type { Theme } from "../types";
+import {
+  THEME_STORAGE_KEY,
+  THEME_DARK_CLASS,
+  THEME_MEDIA_QUERY,
+  THEME_LIGHT,
+  THEME_DARK,
+} from "../constants";
 
 export function useTheme() {
-  const [theme, setTheme] = useState<Theme>(() => {
-    // Check localStorage first
-    const savedTheme = localStorage.getItem("theme") as Theme;
-    if (savedTheme) {
-      return savedTheme;
-    }
-    // Default to light theme
-    return "light";
-  });
+  const [theme, setTheme] = useState<Theme>(THEME_LIGHT);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const root = document.documentElement;
-    if (theme === "dark") {
-      root.classList.add("dark");
+    // Set mounted flag to indicate we're on the client
+    setMounted(true);
+
+    // Check localStorage for saved theme first
+    const savedTheme = localStorage.getItem(THEME_STORAGE_KEY) as Theme;
+    if (savedTheme === THEME_LIGHT || savedTheme === THEME_DARK) {
+      setTheme(savedTheme);
     } else {
-      root.classList.remove("dark");
+      // Check system preference if no saved theme
+      if (window.matchMedia(THEME_MEDIA_QUERY).matches) {
+        setTheme(THEME_DARK);
+      } else {
+        setTheme(THEME_LIGHT);
+      }
     }
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
+    const root = document.documentElement;
+    if (theme === THEME_DARK) {
+      root.classList.add(THEME_DARK_CLASS);
+    } else {
+      root.classList.remove(THEME_DARK_CLASS);
+    }
+    localStorage.setItem(THEME_STORAGE_KEY, theme);
+  }, [theme, mounted]);
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+    setTheme((prev) => (prev === THEME_LIGHT ? THEME_DARK : THEME_LIGHT));
   };
 
-  return { theme, toggleTheme };
+  return { theme, toggleTheme, mounted };
 }

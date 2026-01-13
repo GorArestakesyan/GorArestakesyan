@@ -1,29 +1,37 @@
-import { technicalSkills, softSkills, languages } from '../data/cvData';
+import { technicalSkills, softSkills, languages } from "../data/cvData";
+import { SKILL_CATEGORIES, LANGUAGE_LEVELS } from "../constants";
 
 export default function Skills() {
   // Group technical skills by category
-  const frontendSkills = technicalSkills.filter(skill => 
-    ['React.js', 'Next.js', 'React Native', 'Expo', 'React Navigation', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'Tailwind', 'Styled Components'].includes(skill)
+  const frontendSkills = technicalSkills.filter((skill) =>
+    (SKILL_CATEGORIES.FRONTEND as readonly string[]).includes(skill)
   );
-  
-  const stateManagement = technicalSkills.filter(skill => 
-    ['Redux', 'Redux Toolkit', 'MobX', 'TanStack Query'].includes(skill)
+
+  const stateManagement = technicalSkills.filter((skill) =>
+    (SKILL_CATEGORIES.STATE_MANAGEMENT as readonly string[]).includes(skill)
   );
-  
-  const backendTools = technicalSkills.filter(skill => 
-    ['GraphQL', 'REST APIs', 'Supabase', 'Firebase (Auth, Analytics, Crashlytics)', 'WebSockets', 'Mercure'].includes(skill)
+
+  const backendTools = technicalSkills.filter((skill) =>
+    (SKILL_CATEGORIES.BACKEND as readonly string[]).includes(skill)
   );
-  
-  const devTools = technicalSkills.filter(skill => 
-    ['CI/CD', 'GitHub', 'GitLab', 'Bitbucket', 'Jest', 'Sentry', 'Jira', 'Figma'].includes(skill)
+
+  const devTools = technicalSkills.filter((skill) =>
+    (SKILL_CATEGORIES.DEV_TOOLS as readonly string[]).includes(skill)
   );
-  
-  const paymentTools = technicalSkills.filter(skill => 
-    ['Apple Pay', 'Google Pay'].includes(skill)
+
+  const paymentTools = technicalSkills.filter((skill) =>
+    (SKILL_CATEGORIES.PAYMENT as readonly string[]).includes(skill)
   );
-  
-  const otherSkills = technicalSkills.filter(skill => 
-    ![...frontendSkills, ...stateManagement, ...backendTools, ...devTools, ...paymentTools].includes(skill)
+
+  const otherSkills = technicalSkills.filter(
+    (skill) =>
+      ![
+        ...frontendSkills,
+        ...stateManagement,
+        ...backendTools,
+        ...devTools,
+        ...paymentTools,
+      ].includes(skill)
   );
 
   return (
@@ -156,12 +164,17 @@ export default function Skills() {
                   <div key={index} className="language-item">
                     <span className="language-name">{lang.name}</span>
                     <div className="language-bar">
-                      <div 
-                        className="language-progress" 
+                      <div
+                        className="language-progress"
                         style={{
-                          width: lang.level === 'Native' ? '100%' : 
-                                 lang.level.includes('B2') ? '75%' : 
-                                 lang.level.includes('B1') ? '50%' : '25%'
+                          width:
+                            lang.level === "Native"
+                              ? `${LANGUAGE_LEVELS.NATIVE}%`
+                              : lang.level.includes("B2")
+                              ? `${LANGUAGE_LEVELS.B2}%`
+                              : lang.level.includes("B1")
+                              ? `${LANGUAGE_LEVELS.B1}%`
+                              : `${LANGUAGE_LEVELS.DEFAULT}%`,
                         }}
                       ></div>
                     </div>

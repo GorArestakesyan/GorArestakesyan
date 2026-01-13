@@ -1,25 +1,6 @@
-export interface Experience {
-  title: string;
-  company: string;
-  location?: string;
-  period: string;
-  categories: string[];
-  achievements: string[];
-}
+import type { Experience, Education, Contact, Language } from "../types";
 
-export interface Education {
-  degree: string;
-  institution: string;
-  period: string;
-}
-
-export interface Contact {
-  phone: string;
-  email: string;
-  github: string;
-  portfolio: string;
-  linkedin: string;
-}
+export type { Experience, Education, Contact, Language };
 
 export const personalInfo = {
   name: "Gor Arestakesyan",
@@ -168,7 +149,7 @@ export const softSkills = [
   "Problem Solving",
 ];
 
-export const languages = [
+export const languages: Language[] = [
   { name: "English", level: "B2 Upper Intermediate" },
   { name: "Russian", level: "B2 – Upper Intermediate" },
   { name: "Armenian", level: "Native" },
