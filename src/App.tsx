@@ -7,7 +7,7 @@ import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import { useTheme } from "./hooks/useTheme";
 import { PERSONAL_INFO } from "./constants";
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/react";
 import "./App.css";
 
 function App() {
