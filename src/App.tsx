@@ -7,6 +7,7 @@ import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import { useTheme } from "./hooks/useTheme";
 import { PERSONAL_INFO } from "./constants";
+import { Analytics } from "@vercel/analytics/next";
 import "./App.css";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
 
   return (
     <div className="App">
+      <Analytics />
       <Navigation />
       <main>
         <Hero />
