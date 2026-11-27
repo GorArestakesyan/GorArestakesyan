@@ -8,56 +8,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SEO Meta Tags -->
-    <title>Gor Arestakesyan - Software Engineer | Front End Developer</title>
+    <title>Gor Arestakesyan | Senior Frontend Engineer</title>
     <meta
       name="description"
-      content="Gor Arestakesyan - Software Engineer specializing in React, React Native, and Full Stack Development. Experienced in building modern web and mobile applications."
-    />
-    <meta
-      name="keywords"
-      content="Software Engineer, Front End Developer, React Developer, React Native, Full Stack Developer, TypeScript, JavaScript"
+      content="Gor Arestakesyan, Senior Frontend Engineer in Yerevan, Armenia. 6+ years building real-time web and mobile products with React, Next.js, React Native and TypeScript. Open to React Native and frontend roles: on-site or hybrid in Armenia, or remote abroad."
     />
     <meta name="author" content="Gor Arestakesyan" />
+    <meta name="theme-color" content="#0c0b0a" />
+    <link rel="canonical" href="%SITE_URL%/" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Gor Arestakesyan - Software Engineer" />
+    <!-- Open Graph -->
+    <!-- The site URL placeholder is filled at build time (see vite.config.ts). -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content="%SITE_URL%/" />
+    <meta property="og:site_name" content="Gor Arestakesyan" />
+    <meta property="og:image" content="%SITE_URL%/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Gor Arestakesyan, Senior Frontend Engineer" />
+    <meta property="og:title" content="Gor Arestakesyan | Senior Frontend Engineer" />
     <meta
       property="og:description"
-      content="Software Engineer specializing in React, React Native, and Full Stack Development"
+      content="Real-time web and mobile products with React and TypeScript, built to be fast."
     />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Gor Arestakesyan - Software Engineer" />
+    <meta name="twitter:image" content="%SITE_URL%/og-image.png" />
+    <meta name="twitter:title" content="Gor Arestakesyan | Senior Frontend Engineer" />
     <meta
       name="twitter:description"
-      content="Software Engineer specializing in React, React Native, and Full Stack Development"
+      content="Real-time web and mobile products with React and TypeScript, built to be fast."
     />
 
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Structured data: lets search engines show a proper profile result. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Gor Arestakesyan",
+        "jobTitle": "Senior Frontend Engineer",
+        "url": "%SITE_URL%/",
+        "image": "%SITE_URL%/og-image.png",
+        "email": "mailto:gorarestakesyan0@gmail.com",
+        "worksFor": { "@type": "Organization", "name": "Koreez Ed Tech" },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Yerevan",
+          "addressCountry": "AM"
+        },
+        "knowsAbout": [
+          "React",
+          "TypeScript",
+          "Next.js",
+          "React Native",
+          "Web performance",
+          "Real-time applications"
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/gor-arestakesyan/",
+          "https://github.com/GorArestakesyan"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script>
-      // Set initial theme before React loads to prevent flash
-      (function () {
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme === "dark") {
-          document.documentElement.classList.add("dark");
-        } else if (savedTheme === "light") {
-          document.documentElement.classList.remove("dark");
-        } else {
-          // Check system preference if no saved theme
-          if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            document.documentElement.classList.add("dark");
-          } else {
-            document.documentElement.classList.remove("dark");
-          }
-        }
-      })();
+      // Dark is the default look; apply a saved light preference before paint.
+      if (localStorage.getItem("theme") !== "light") {
+        document.documentElement.classList.add("dark");
+      }
+      document.documentElement.classList.add("js");
     </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
