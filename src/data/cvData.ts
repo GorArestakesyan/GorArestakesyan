@@ -40,7 +40,7 @@ export const experiences: Experience[] = [
     achievements: [
       "Optimized performance of real-time features, including in-app games, for 1,000+ concurrent users.",
       "Deliver features across the React web platform and mobile app, from Figma designs to production release.",
-      "Led development of a React Native app from scratch, now in deployment; designed its navigation, state and API layer.",
+      "Led development of a React Native app from scratch, now live on the App Store and Google Play; designed its navigation, state and API layer.",
       "Review pull requests and mentor junior developers on React, TypeScript and code quality.",
       "Integrated Firebase Crashlytics with Slack alerts for real-time crash monitoring and faster incident response.",
     ],
@@ -262,7 +262,7 @@ export const projects: Project[] = [
     tier: "featured",
     title: "Koreez mobile app",
     company: "Koreez Ed Tech",
-    status: "In development",
+    status: "Live",
     summary: "React Native companion to the Koreez web platform, with real-time in-app games.",
     role: "Led development from scratch: navigation, state and API layer, real-time performance, builds and store submission.",
     highlights: [
@@ -273,6 +273,10 @@ export const projects: Project[] = [
     ],
     outcome: "Real-time games for 1,000+ concurrent users",
     stack: ["React Native", "Expo", "TypeScript", "Idram", "Telcell", "EAS", "Fastlane", "Firebase Crashlytics"],
+    links: [
+      { label: "App Store", href: "https://apps.apple.com/am/app/koreez/id6465207992" },
+      { label: "Google Play", href: "https://play.google.com/store/apps/details?id=com.koreez" },
+    ],
   },
 
   // Main projects, in pairs of similar size so the two-column grid stays even.

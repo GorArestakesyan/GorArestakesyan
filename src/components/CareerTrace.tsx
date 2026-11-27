@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import { experiences } from "../data/cvData";
 import type { YearMonth } from "../types";
+import { formatDuration } from "../utils/duration";
 
 const toMonths = (ym: YearMonth) => {
   const [y, m] = ym.split("-").map(Number);
@@ -39,7 +40,7 @@ const bars: Bar[] = experiences
       key: exp.id,
       label: exp.partTime ? `${exp.company}, part-time` : exp.company,
       href: `#exp-${exp.id}`,
-      title: `${exp.title}, ${exp.company} (${exp.period})`,
+      title: `${exp.title}, ${exp.company} (${exp.period}, ${formatDuration(exp.start, exp.end)})`,
       row: exp.partTime ? 2 : 0,
       kind: exp.partTime ? "side" : "role",
       style: pos(exp.start, exp.end),

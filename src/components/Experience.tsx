@@ -1,7 +1,10 @@
 import { experiences } from "../data/cvData";
+import { formatDuration } from "../utils/duration";
+import type { Experience as Role } from "../types";
 
-const yearsOf = (period: string) =>
-  period.replace(/[A-Za-z]{3} /g, "").replace("Present", "now");
+// e.g. "Nov 2023 – Dec 2025 · 2 yrs 2 mos"
+const periodWithDuration = (exp: Role) =>
+  `${exp.period} · ${formatDuration(exp.start, exp.end)}`;
 
 export default function Experience() {
   return (
@@ -19,8 +22,8 @@ export default function Experience() {
             {experiences.map((exp) => (
               <li key={exp.id}>
                 <a href={`#exp-${exp.id}`}>
-                  <span>{exp.company}</span>
-                  <span className="exp-index-years">{yearsOf(exp.period)}</span>
+                  <span className="exp-index-company">{exp.company}</span>
+                  <span className="exp-index-years">{periodWithDuration(exp)}</span>
                 </a>
               </li>
             ))}
@@ -48,7 +51,7 @@ export default function Experience() {
                   <div className="role-tags">
                     {i === 0 && <span className="tag tag-live">Current</span>}
                     {exp.partTime && <span className="tag tag-side">Part-time</span>}
-                    <span className="tag">{exp.period}</span>
+                    <span className="tag tag-period">{periodWithDuration(exp)}</span>
                   </div>
                 </header>
                 {exp.about && <p className="role-about">{exp.about}</p>}
