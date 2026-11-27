@@ -2148,3 +2148,9 @@ html:not(.js) .lang-meter::after {
     display: none;
   }
 }
+
+/* Role length next to the dates, so "2023 – 2025" isn't misread as one year. */
+.tag-duration {
+  color: var(--text);
+  border-color: var(--border-strong);
+}
