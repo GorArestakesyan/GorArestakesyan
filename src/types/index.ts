@@ -58,6 +58,7 @@ export interface Project {
   role: string;
   highlights?: string[];
   outcome?: string;
+  links?: { label: string; href: string }[];
   stack: string[];
   featured?: boolean;
 }

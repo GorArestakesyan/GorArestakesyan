@@ -2038,3 +2038,48 @@ html:not(.js) .lang-meter::after {
     grid-template-columns: 1fr;
   }
 }
+
+/* Store / website links on project cards */
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.project-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid color-mix(in srgb, var(--a1) 40%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--a1) 10%, transparent);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text);
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.25s var(--ease);
+}
+
+.project-links a:hover {
+  border-color: var(--a1);
+  background: color-mix(in srgb, var(--a1) 20%, transparent);
+  transform: translateY(-1px);
+}
+
+.project-links .icon {
+  width: 0.85rem;
+  height: 0.85rem;
+  color: var(--a1);
+}
+
+@media print {
+  .project-links a::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: var(--muted);
+  }
+  .project-links .icon {
+    display: none;
+  }
+}

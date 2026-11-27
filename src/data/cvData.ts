@@ -30,7 +30,7 @@ export const personalInfo = {
 export const experiences: Experience[] = [
   {
     id: "koreez",
-    about: "Ed-tech platform with a React web app, a mobile app and real-time in-app games.",
+    about: "Armenian ed-tech company: student competitions (koreez.am), a teacher platform and learning apps.",
     title: "Senior Frontend Engineer",
     company: "Koreez Ed Tech",
     location: "Yerevan, Armenia",
@@ -215,12 +215,34 @@ export const stack = [
 // Sources: CV and the Notion portfolio. Only add facts that appear in one of them.
 export const projects: Project[] = [
   {
-    title: "Ed-tech mobile app",
+    title: "Umolyot",
+    company: "Koreez Ed Tech",
+    status: "Live",
+    summary:
+      "Learning app for schoolchildren: short assignments, quizzes and game-based lessons that adapt to each student's level.",
+    role: "React Native engineer in a team of 10. Built the app from scratch and owned its store releases.",
+    highlights: [
+      "Built the app from scratch and implemented the UI from the designs",
+      "VK ID and Yandex ID sign-in, plus native modules such as sound",
+      "GitLab feature flags for A/B testing and remote rollout",
+      "Released to the App Store, Google Play and RuStore, with Fastlane automating builds",
+      "Also took NestJS backend tasks",
+    ],
+    stack: ["React Native", "TypeScript", "NestJS", "Fastlane", "GitLab feature flags", "VK ID", "Yandex ID", "Native modules"],
+    links: [
+      { label: "App Store", href: "https://apps.apple.com/ru/app/id6802281905" },
+      { label: "Google Play", href: "https://play.google.com/store/apps/details?id=com.umolet" },
+      { label: "RuStore", href: "https://www.rustore.ru/catalog/app/com.umolet" },
+    ],
+    featured: true,
+  },
+  {
+    title: "Koreez mobile app",
     company: "Koreez Ed Tech",
     status: "In development",
     summary:
-      "React Native app built from scratch alongside the React web platform, with real-time in-app games.",
-    role: "Led development: navigation, state and API layer, performance of real-time features, builds and store submission.",
+      "React Native companion to the Koreez web platform, with real-time in-app games.",
+    role: "Led development from scratch: navigation, state and API layer, real-time performance, builds and store submission.",
     highlights: [
       "Real-time in-app games tuned for 1,000+ concurrent users",
       "Idram and Telcell payments",
@@ -228,8 +250,35 @@ export const projects: Project[] = [
       "Crashlytics crash alerts sent to Slack",
     ],
     outcome: "Real-time games for 1,000+ concurrent users",
-    stack: ["React Native", "Expo", "TypeScript", "React", "Idram", "Telcell", "EAS", "Fastlane", "Firebase Crashlytics", "Slack alerts"],
-    featured: true,
+    stack: ["React Native", "Expo", "TypeScript", "Idram", "Telcell", "EAS", "Fastlane", "Firebase Crashlytics"],
+  },
+  {
+    title: "koreez.am",
+    company: "Koreez Ed Tech",
+    status: "Live",
+    summary:
+      "Armenia's educational competitions platform for grades 1 to 12: registration, competitions, schedules and leaderboards.",
+    role: "Deliver features on the React web platform, from Figma designs to production release.",
+    highlights: [
+      "58,000+ students have taken part in Koreez competitions",
+      "Competition registration, schedules and leaderboards",
+    ],
+    stack: ["React", "TypeScript", "Figma"],
+    links: [{ label: "Website", href: "https://www.koreez.am" }],
+  },
+  {
+    title: "Koreez Teacher",
+    company: "Koreez Ed Tech",
+    status: "Live",
+    summary:
+      "Free platform where teachers assign homework from ready-made questions, share a link with the class and see results.",
+    role: "Deliver features on the React web platform, from Figma designs to production release.",
+    highlights: [
+      "150,000+ ready-made questions for grades 1 to 10",
+      "Assign homework to a class in about 2 minutes",
+    ],
+    stack: ["React", "TypeScript", "Figma"],
+    links: [{ label: "Website", href: "https://teacher.koreez.am" }],
   },
   {
     title: "Live event layer",

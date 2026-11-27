@@ -39,6 +39,23 @@ export default function Projects() {
                 </ul>
               )}
               {p.outcome && <p className="project-outcome">{p.outcome}</p>}
+              {p.links && (
+                <ul className="project-links">
+                  {p.links.map((l) => (
+                    <li key={l.href}>
+                      <a
+                        href={l.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => trackClick("project_link", "projects")}
+                      >
+                        {l.label}
+                        <ExternalIcon className="icon" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
               <p className="project-label project-stack-label">Tech stack</p>
               <ul className="chips project-stack" aria-label="Tech stack">
                 {p.stack.map((s) => (
