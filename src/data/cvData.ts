@@ -343,7 +343,8 @@ export const projects: Project[] = [
     title: "Crypto news and market data",
     company: "ShellLogix",
     status: "Private (NDA)",
-    summary: "React Native app bringing crypto news and market data together in one place.",
+    summary:
+      "Mobile app for an international crypto news publisher: verified crypto and blockchain news alongside live prices for coins such as BTC, ETH and XRP.",
     role: "Developed the app and its data layer.",
     highlights: [
       "Crypto news feed and market data screens",
@@ -356,7 +357,8 @@ export const projects: Project[] = [
     title: "ESG metrics platform",
     company: "ShellLogix",
     status: "Private (NDA)",
-    summary: "ESG metrics web platform, built from reusable components in an Nx monorepo.",
+    summary:
+      "Enterprise sustainability and ESG reporting platform: companies collect ESG and carbon data, track KPIs on dashboards and produce reports for investors and regulators.",
     role: "Built responsive UI components and introduced feature flags.",
     highlights: [
       "Reusable, responsive React and TypeScript components",
