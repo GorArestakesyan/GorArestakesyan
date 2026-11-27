@@ -1,5 +1,6 @@
 <h1 align="center">Gor Arestakesyan</h1>
-<h3 align="center">Software Engineer</h3>
+<h3 align="center">Senior Frontend Engineer</h3>
+<p align="center">React, TypeScript, Next.js and React Native. Real-time web and mobile products, built to be fast.</p>
 
 <p align="center">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="28" />
@@ -13,7 +14,9 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=gorarestakesyan&label=Profile%20views&color=0e75b6&style=flat" alt="GorArestakesyan" /> </p>
 
-- 👨‍💻 All of my projects are available [**here**](https://www.notion.so/Projects-Portfolio-Gor-Arestakesyan-2b48806d3359802181f2f1c0888d37fe)
+- 💼 Currently a Senior Frontend Engineer at Koreez Ed Tech (Yerevan, Armenia)
+- 🌍 Open to on-site or hybrid roles in Armenia, or remote for companies abroad
+- 👨‍💻 All of my projects are available [**here**](https://app.notion.com/p/gorarestakesyan/Gor-Arestakesyan-Portfolio-4248806d33598097b077c3e12f49bd63)
 - 📫 How to reach me:
   - **Gmail:** gorarestakesyan0@gmail.com
   - **LinkedIn:** [linkedin.com/in/gor-arestakesyan](https://www.linkedin.com/in/gor-arestakesyan/)
