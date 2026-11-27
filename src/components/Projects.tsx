@@ -21,12 +21,26 @@ export default function Projects() {
               data-reveal
               style={{ "--d": i % 3 } as CSSProperties}
             >
-              <p className="project-company">{p.company}</p>
+              <div className="project-top">
+                <p className="project-company">{p.company}</p>
+                {p.status && <span className="project-status">{p.status}</span>}
+              </div>
               <h3 className="project-title">{p.title}</h3>
               <p className="project-summary">{p.summary}</p>
-              <p className="project-role">{p.role}</p>
+              <p className="project-role">
+                <span className="project-label">My role</span>
+                {p.role}
+              </p>
+              {p.highlights && (
+                <ul className="project-highlights">
+                  {p.highlights.map((h) => (
+                    <li key={h}>{h}</li>
+                  ))}
+                </ul>
+              )}
               {p.outcome && <p className="project-outcome">{p.outcome}</p>}
-              <ul className="chips project-stack" aria-label="Stack">
+              <p className="project-label project-stack-label">Tech stack</p>
+              <ul className="chips project-stack" aria-label="Tech stack">
                 {p.stack.map((s) => (
                   <li key={s}>{s}</li>
                 ))}

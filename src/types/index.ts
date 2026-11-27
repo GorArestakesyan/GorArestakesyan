@@ -52,8 +52,11 @@ export interface NavItem {
 export interface Project {
   title: string;
   company: string;
+  /** e.g. "Live", "In development", "Private (NDA)". */
+  status?: string;
   summary: string;
   role: string;
+  highlights?: string[];
   outcome?: string;
   stack: string[];
   featured?: boolean;

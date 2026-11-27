@@ -175,15 +175,23 @@ export const stack = [
   "Jest",
 ];
 
+// Sources: CV and the Notion portfolio. Only add facts that appear in one of them.
 export const projects: Project[] = [
   {
     title: "Ed-tech mobile app",
     company: "Koreez Ed Tech",
+    status: "In development",
     summary:
-      "React Native app built from scratch alongside the React web platform, with live in-app games.",
-    role: "Led development: navigation, state and API layer; performance of real-time features.",
-    outcome: "Real-time games tuned for 1,000+ concurrent users",
-    stack: ["React Native", "React", "TypeScript", "Firebase Crashlytics"],
+      "React Native app built from scratch alongside the React web platform, with real-time in-app games.",
+    role: "Led development: navigation, state and API layer, performance of real-time features, builds and store submission.",
+    highlights: [
+      "Real-time in-app games tuned for 1,000+ concurrent users",
+      "Idram and Telcell payments",
+      "EAS and Fastlane builds and store submission",
+      "Crashlytics crash alerts sent to Slack",
+    ],
+    outcome: "Real-time games for 1,000+ concurrent users",
+    stack: ["React Native", "Expo", "TypeScript", "React", "Idram", "Telcell", "EAS", "Fastlane", "Firebase Crashlytics", "Slack alerts"],
     featured: true,
   },
   {
@@ -192,29 +200,51 @@ export const projects: Project[] = [
     summary:
       "Mercure (SSE) real-time event layer behind live feed updates and notifications.",
     role: "Implemented the event layer and the live updates built on it.",
+    highlights: [
+      "Live updates across ShellLogix products",
+      "Live post updates in the Nutreva AI community feed",
+    ],
     outcome: "About 50% shorter notification wait times",
-    stack: ["Mercure", "SSE", "React", "TypeScript"],
+    stack: ["Mercure", "Server-Sent Events", "React", "React Native", "TypeScript", "Supabase"],
   },
   {
     title: "ESG metrics platform",
     company: "ShellLogix",
+    status: "Private (NDA)",
     summary: "ESG metrics web platform, built from reusable components in an Nx monorepo.",
     role: "Built responsive UI components and introduced feature flags.",
+    highlights: [
+      "Reusable, responsive React and TypeScript components",
+      "Feature flags for remote feature control",
+    ],
     outcome: "About 30% faster rollout and testing cycles",
-    stack: ["React", "TypeScript", "Nx", "Feature flags"],
+    stack: ["React", "TypeScript", "Nx monorepo", "Feature flags", "Responsive design"],
   },
   {
     title: "Real-money gaming app",
     company: "ShellLogix",
-    summary: "Mobile gaming app with gameplay flows, rewards, cash-out and KYC onboarding.",
+    status: "Private (NDA)",
+    summary:
+      "React Native app where players complete missions, earn rewards and cash out real money.",
     role: "Built the app's core flows in React Native.",
-    stack: ["React Native", "TypeScript", "KYC"],
+    highlights: [
+      "Missions, gameplay flows and rewards",
+      "Cash-out flow for real-money winnings",
+      "KYC onboarding to verify player identity",
+      "Live updates over a Mercure real-time layer",
+    ],
+    stack: ["React Native", "TypeScript", "Mercure (SSE)", "KYC onboarding", "Cash-out payments"],
   },
   {
     title: "Crypto news and market data",
     company: "ShellLogix",
-    summary: "Crypto news and market data app.",
+    status: "Private (NDA)",
+    summary: "React Native app bringing crypto news and market data together in one place.",
     role: "Developed the app and its data layer.",
-    stack: ["TypeScript", "REST", "Apollo GraphQL"],
+    highlights: [
+      "Crypto news feed and market data screens",
+      "Data layer combining REST APIs and Apollo GraphQL",
+    ],
+    stack: ["React Native", "TypeScript", "REST APIs", "Apollo GraphQL", "GraphQL"],
   },
 ];
