@@ -2149,8 +2149,23 @@ html:not(.js) .lang-meter::after {
   }
 }
 
-/* Role length next to the dates, so "2023 – 2025" isn't misread as one year. */
-.tag-duration {
+/* Dates plus role length ("Nov 2023 – Dec 2025 · 2 yrs 2 mos"), so a year
+   range like 2024 – 2025 isn't misread as one year. */
+.tag-period {
   color: var(--text);
   border-color: var(--border-strong);
+}
+
+/* Pinned company list: company on top, dates and length underneath. */
+.exp-index a {
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.exp-index-company {
+  color: inherit;
+}
+
+.exp-index-years {
+  font-size: 0.8125rem;
 }
