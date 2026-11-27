@@ -117,24 +117,61 @@ export const experiences: Experience[] = [
   },
 ];
 
+// Sources: CV, Notion portfolio (skills + project stacks) and the previous site.
 export const skillGroups: SkillGroup[] = [
   { label: "Languages", items: ["TypeScript", "JavaScript (ES6+)", "HTML5", "CSS3"] },
-  { label: "Frameworks", items: ["React", "Next.js (SSR)", "React Native", "Expo"] },
+  {
+    label: "Web",
+    items: ["React", "Next.js (SSR)", "Vite", "Webpack", "PWA", "Responsive design"],
+  },
+  {
+    label: "Mobile",
+    items: [
+      "React Native",
+      "Expo",
+      "React Navigation",
+      "Reanimated",
+      "Gesture Handler",
+      "Native modules",
+      "Push notifications",
+      "Offline storage (AsyncStorage)",
+    ],
+  },
   {
     label: "State and data",
-    items: ["Redux Toolkit", "TanStack Query", "MobX", "Apollo GraphQL", "REST", "WebSockets", "Mercure (SSE)"],
+    items: ["Redux Toolkit", "Redux", "TanStack Query", "MobX", "Apollo GraphQL", "GraphQL", "REST", "WebSockets", "Mercure (SSE)"],
+  },
+  {
+    label: "Backend and services",
+    items: ["Firebase (Auth, Analytics, Crashlytics)", "Supabase", "NestJS", "Node.js", "PostgreSQL"],
+  },
+  {
+    label: "Payments and sign-in",
+    items: ["In-app payments", "Subscriptions", "Promo codes", "Apple Pay", "Google Pay", "Idram", "Telcell", "KYC onboarding", "VK ID", "Yandex ID"],
   },
   {
     label: "Performance and monitoring",
-    items: ["Web Vitals", "Lazy loading", "Code splitting", "Chrome DevTools", "Sentry", "Firebase Analytics", "Crashlytics"],
+    items: ["Web Vitals", "Lazy loading", "Code splitting", "Chrome DevTools", "Sentry", "Firebase Crashlytics", "Slack alerts"],
   },
   {
-    label: "UI",
-    items: ["Material UI", "Tailwind CSS", "Styled Components", "Responsive design", "Chart libraries", "Figma"],
+    label: "UI and design",
+    items: ["Material UI", "Tailwind CSS", "Styled Components", "Chart libraries", "Figma"],
+  },
+  {
+    label: "Testing",
+    items: ["Jest", "React Testing Library", "React Native Testing Library"],
+  },
+  {
+    label: "Release and CI/CD",
+    items: ["EAS", "Fastlane", "Mobile CI/CD", "CI/CD", "App Store", "Google Play", "RuStore"],
   },
   {
     label: "Architecture and delivery",
-    items: ["Nx monorepos", "Yarn Workspaces", "Feature flags", "Jest", "React Testing Library", "CI/CD", "Code review", "Git"],
+    items: ["Nx monorepos", "Yarn Workspaces", "Feature flags", "A/B testing", "Code review", "Mentoring"],
+  },
+  {
+    label: "Tools",
+    items: ["Git", "GitHub", "GitLab", "Bitbucket", "Jira", "Postman", "ESLint"],
   },
 ];
 
