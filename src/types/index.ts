@@ -50,15 +50,16 @@ export interface NavItem {
 }
 
 export interface Project {
+  /** featured: full-width card; main: detailed card; more: short store-listing card. */
+  tier: "featured" | "main" | "more";
   title: string;
-  company: string;
+  company?: string;
   /** e.g. "Live", "In development", "Private (NDA)". */
   status?: string;
   summary: string;
-  role: string;
+  role?: string;
   highlights?: string[];
   outcome?: string;
   links?: { label: string; href: string }[];
-  stack: string[];
-  featured?: boolean;
+  stack?: string[];
 }

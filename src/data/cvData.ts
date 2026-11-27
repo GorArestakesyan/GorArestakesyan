@@ -11,13 +11,13 @@ export const personalInfo = {
   name: "Gor Arestakesyan",
   title: "Senior Frontend Engineer",
   location: "Yerevan, Armenia",
-  availability: "Open to senior frontend roles",
+  availability: "Open to React Native and frontend roles",
   workPreference: "On-site or hybrid in Armenia, or remote for companies abroad.",
   cvUrl: "/Gor_Arestakesyan_CV.pdf",
   intro:
-    "I build real-time web and mobile products with React and TypeScript, and I make them fast.",
+    "I build real-time mobile and web products with React Native, React and TypeScript, and I make them fast.",
   summary:
-    "Six years of commercial work across React, Next.js and React Native. Lately that means live updates and in-app games for 1,000+ concurrent users, Mercure event layers that halved notification wait times, and the monitoring to keep it all healthy. I review code, mentor junior developers, and work closely with product and design.",
+    "Six years of commercial work across React Native, React and Next.js. Lately that means live updates and in-app games for 1,000+ concurrent users, Mercure event layers that halved notification wait times, and the monitoring to keep it all healthy. I review code, mentor junior developers, and work closely with product and design.",
   contact: {
     email: "gorarestakesyan0@gmail.com",
     github: "https://github.com/GorArestakesyan",
@@ -212,9 +212,11 @@ export const stack = [
   "Jest",
 ];
 
-// Sources: CV and the Notion portfolio. Only add facts that appear in one of them.
+// Sources: CV, the Notion portfolio and the live sites. Only add facts that appear
+// in one of them. Order = strongest first.
 export const projects: Project[] = [
   {
+    tier: "featured",
     title: "Umolyot",
     company: "Koreez Ed Tech",
     status: "Live",
@@ -234,14 +236,34 @@ export const projects: Project[] = [
       { label: "Google Play", href: "https://play.google.com/store/apps/details?id=com.umolet" },
       { label: "RuStore", href: "https://www.rustore.ru/catalog/app/com.umolet" },
     ],
-    featured: true,
   },
   {
+    tier: "featured",
+    title: "Nutreva AI",
+    company: "Nutreva AI",
+    status: "Live",
+    summary: "AI nutrition app: meal tracking, food scanning, calorie goals and a community feed.",
+    role: "React Native engineer (part-time, remote) in a team of 6.",
+    highlights: [
+      "Real-time post creation with Supabase cron jobs, about 40% faster content updates",
+      "Live post updates on a Mercure real-time event system",
+      "ML models for portion detection and AI meal analysis",
+      "Subscriptions and promo codes with Apple Pay and Google Pay",
+      "Feature flags for remote rollout",
+    ],
+    outcome: "About 50% shorter notification wait times",
+    stack: ["React Native", "TypeScript", "Supabase", "Mercure (SSE)", "Apple Pay", "Google Pay", "Feature flags", "ML models"],
+    links: [
+      { label: "App Store", href: "https://apps.apple.com/us/app/nutreva-nutrition-companion/id6746819437" },
+      { label: "Google Play", href: "https://play.google.com/store/apps/details?id=com.nuetreva.app" },
+    ],
+  },
+  {
+    tier: "featured",
     title: "Koreez mobile app",
     company: "Koreez Ed Tech",
     status: "In development",
-    summary:
-      "React Native companion to the Koreez web platform, with real-time in-app games.",
+    summary: "React Native companion to the Koreez web platform, with real-time in-app games.",
     role: "Led development from scratch: navigation, state and API layer, real-time performance, builds and store submission.",
     highlights: [
       "Real-time in-app games tuned for 1,000+ concurrent users",
@@ -252,7 +274,42 @@ export const projects: Project[] = [
     outcome: "Real-time games for 1,000+ concurrent users",
     stack: ["React Native", "Expo", "TypeScript", "Idram", "Telcell", "EAS", "Fastlane", "Firebase Crashlytics"],
   },
+
+  // Main projects, in pairs of similar size so the two-column grid stays even.
   {
+    tier: "main",
+    title: "Saymoji",
+    company: "Personal project",
+    status: "Live",
+    summary:
+      "Offline party game: one player explains a secret word with emojis only, and the team guesses on one shared phone.",
+    role: "Solo developer.",
+    highlights: [
+      "Full game loop: team setup, turns, timer, scoring, rounds and win conditions",
+      "Fully offline, with player stats and achievements stored on the device",
+      "Searchable emoji picker that auto-bans emojis giving the word away",
+      "English, Russian and Armenian UI with device language detection",
+    ],
+    stack: ["React Native", "Expo", "TypeScript", "Redux Toolkit", "Reanimated", "Gesture Handler", "React Navigation", "AsyncStorage"],
+    links: [{ label: "Google Play", href: "https://play.google.com/store/apps/details?id=com.saymoji.app" }],
+  },
+  {
+    tier: "main",
+    title: "Real-money gaming app",
+    company: "ShellLogix",
+    status: "Private (NDA)",
+    summary: "React Native app where players complete missions, earn rewards and cash out real money.",
+    role: "Built the app's core flows in React Native.",
+    highlights: [
+      "Missions, gameplay flows and rewards",
+      "Cash-out flow for real-money winnings",
+      "KYC onboarding to verify player identity",
+      "Live updates over a Mercure real-time layer",
+    ],
+    stack: ["React Native", "TypeScript", "Mercure (SSE)", "KYC onboarding", "Cash-out payments"],
+  },
+  {
+    tier: "main",
     title: "koreez.am",
     company: "Koreez Ed Tech",
     status: "Live",
@@ -267,6 +324,7 @@ export const projects: Project[] = [
     links: [{ label: "Website", href: "https://www.koreez.am" }],
   },
   {
+    tier: "main",
     title: "Koreez Teacher",
     company: "Koreez Ed Tech",
     status: "Live",
@@ -281,19 +339,20 @@ export const projects: Project[] = [
     links: [{ label: "Website", href: "https://teacher.koreez.am" }],
   },
   {
-    title: "Live event layer",
-    company: "ShellLogix and Nutreva AI",
-    summary:
-      "Mercure (SSE) real-time event layer behind live feed updates and notifications.",
-    role: "Implemented the event layer and the live updates built on it.",
+    tier: "main",
+    title: "Crypto news and market data",
+    company: "ShellLogix",
+    status: "Private (NDA)",
+    summary: "React Native app bringing crypto news and market data together in one place.",
+    role: "Developed the app and its data layer.",
     highlights: [
-      "Live updates across ShellLogix products",
-      "Live post updates in the Nutreva AI community feed",
+      "Crypto news feed and market data screens",
+      "Data layer combining REST APIs and Apollo GraphQL",
     ],
-    outcome: "About 50% shorter notification wait times",
-    stack: ["Mercure", "Server-Sent Events", "React", "React Native", "TypeScript", "Supabase"],
+    stack: ["React Native", "TypeScript", "REST APIs", "Apollo GraphQL"],
   },
   {
+    tier: "main",
     title: "ESG metrics platform",
     company: "ShellLogix",
     status: "Private (NDA)",
@@ -304,33 +363,38 @@ export const projects: Project[] = [
       "Feature flags for remote feature control",
     ],
     outcome: "About 30% faster rollout and testing cycles",
-    stack: ["React", "TypeScript", "Nx monorepo", "Feature flags", "Responsive design"],
+    stack: ["React", "TypeScript", "Nx monorepo", "Feature flags"],
+  },
+
+  // More live apps (the portfolio lists only a description and store links).
+  {
+    tier: "more",
+    title: "Style DNA",
+    status: "Live",
+    summary: "AI styling and color analysis app with outfit recommendations based on the user's appearance.",
+    links: [
+      { label: "App Store", href: "https://apps.apple.com/us/app/style-dna-ai-stylist-closet/id1358319821" },
+      { label: "Google Play", href: "https://play.google.com/store/apps/details?id=style.dna.app" },
+    ],
   },
   {
-    title: "Real-money gaming app",
-    company: "ShellLogix",
-    status: "Private (NDA)",
-    summary:
-      "React Native app where players complete missions, earn rewards and cash out real money.",
-    role: "Built the app's core flows in React Native.",
-    highlights: [
-      "Missions, gameplay flows and rewards",
-      "Cash-out flow for real-money winnings",
-      "KYC onboarding to verify player identity",
-      "Live updates over a Mercure real-time layer",
+    tier: "more",
+    title: "Cadastre Mobile",
+    status: "Live",
+    summary: "Armenia's official cadastre app: property applications, ownership information and restrictions.",
+    links: [
+      { label: "App Store", href: "https://apps.apple.com/am/app/cadastre-mobile/id6450672543" },
+      { label: "Google Play", href: "https://play.google.com/store/apps/details?id=com.cadastreapp" },
     ],
-    stack: ["React Native", "TypeScript", "Mercure (SSE)", "KYC onboarding", "Cash-out payments"],
   },
   {
-    title: "Crypto news and market data",
-    company: "ShellLogix",
-    status: "Private (NDA)",
-    summary: "React Native app bringing crypto news and market data together in one place.",
-    role: "Developed the app and its data layer.",
-    highlights: [
-      "Crypto news feed and market data screens",
-      "Data layer combining REST APIs and Apollo GraphQL",
+    tier: "more",
+    title: "Moni",
+    status: "Live",
+    summary: "Crypto portfolio tracking app: assets, market performance and portfolio changes.",
+    links: [
+      { label: "App Store", href: "https://apps.apple.com/us/app/moni-income-expense-tracker/id6740729952" },
+      { label: "Google Play", href: "https://play.google.com/store/apps/details?id=lat.moni.app" },
     ],
-    stack: ["React Native", "TypeScript", "REST APIs", "Apollo GraphQL", "GraphQL"],
   },
 ];

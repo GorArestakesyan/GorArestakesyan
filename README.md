@@ -15,7 +15,7 @@
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=gorarestakesyan&label=Profile%20views&color=0e75b6&style=flat" alt="GorArestakesyan" /> </p>
 
 - 💼 Currently a Senior Frontend Engineer at Koreez Ed Tech (Yerevan, Armenia)
-- 🌍 Open to on-site or hybrid roles in Armenia, or remote for companies abroad
+- 🌍 Open to React Native (first choice) and frontend roles: on-site or hybrid in Armenia, or remote for companies abroad
 - 👨‍💻 All of my projects are available [**here**](https://app.notion.com/p/gorarestakesyan/Gor-Arestakesyan-Portfolio-4248806d33598097b077c3e12f49bd63)
 - 📫 How to reach me:
   - **Gmail:** gorarestakesyan0@gmail.com

@@ -1801,7 +1801,11 @@ html:not(.js) .lang-meter::after {
 }
 
 /* =========================================================
-   Projects + company context
+   Projects
+   Featured: full-width two-column cards.
+   Main: two-column grid of equal-height cards, ordered in pairs of
+   similar size, with the tech stack aligned to the card bottom.
+   More: three short store-listing cards.
    ========================================================= */
 
 .role-about {
@@ -1810,23 +1814,23 @@ html:not(.js) .lang-meter::after {
   color: var(--muted);
 }
 
-.projects-grid {
+.projects-layout {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
 
 .project {
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
 }
 
-.project.is-featured {
-  grid-column: span 2;
-  background:
-    radial-gradient(120% 140% at 100% 0%, color-mix(in srgb, var(--a1) 14%, transparent), transparent 55%),
-    var(--card);
+.project-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 1.5rem;
 }
 
 .project-company {
@@ -1835,142 +1839,9 @@ html:not(.js) .lang-meter::after {
   color: var(--a1);
 }
 
-.project-title {
-  margin-top: 0.35rem;
-  font-size: 1.25rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.25;
-}
-
-.is-featured .project-title {
-  font-size: clamp(1.4rem, 2.4vw, 1.75rem);
-}
-
-.project-summary {
-  margin-top: 0.6rem;
-  color: color-mix(in srgb, var(--text) 85%, var(--muted));
-}
-
-.project-role {
-  margin-top: 0.5rem;
-  font-size: 0.9375rem;
-  color: var(--muted);
-}
-
-.project-outcome {
-  align-self: flex-start;
-  margin-top: 1rem;
-  padding: 0.3rem 0.75rem;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--live) 12%, transparent);
-  border: 1px solid color-mix(in srgb, var(--live) 30%, transparent);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--live);
-}
-
-.project-stack {
-  margin-top: auto;
-  padding-top: 1.25rem;
-}
-
-.project-more {
-  grid-column: 1 / -1;
-  justify-content: center;
-  min-height: 7.5rem;
-  transition: border-color 0.25s var(--ease);
-}
-
-.project-more .project-more-icon {
-  top: 50%;
-  translate: 0 -50%;
-}
-
-.project-more:hover {
-  border-color: color-mix(in srgb, var(--a1) 55%, transparent);
-}
-
-.project-more-label {
-  font-size: 1.25rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
-
-.project-more-sub {
-  margin-top: 0.25rem;
-  font-size: 0.9375rem;
-  color: var(--muted);
-}
-
-.project-more-icon {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  width: 1.4rem;
-  height: 1.4rem;
-  color: var(--a1);
-  transition: transform 0.3s var(--ease);
-}
-
-.project-more:hover .project-more-icon {
-  transform: translate(3px, -3px);
-}
-
-@media (max-width: 960px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 600px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-  .project.is-featured {
-    grid-column: auto;
-  }
-}
-
-/* Six nav links don't fit on small phones: keep Experience, Projects, Contact. */
-@media (max-width: 560px) {
-  .nav-menu li:nth-child(3),
-  .nav-menu li:nth-child(4) {
-    display: none;
-  }
-}
-
-@media print {
-  .projects-grid {
-    display: block;
-  }
-  .project {
-    margin-bottom: 10pt;
-    break-inside: avoid;
-  }
-  .project.is-featured {
-    background: none;
-  }
-  .project-more {
-    display: none !important;
-  }
-  .project-outcome {
-    border: 0;
-    padding: 0;
-    background: none;
-  }
-}
-
-/* Project details: status, role label, highlights, stack label */
-.project-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.75rem;
-}
-
 .project-status {
   flex: none;
+  margin-left: auto;
   padding: 0.15rem 0.6rem;
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -1979,6 +1850,19 @@ html:not(.js) .lang-meter::after {
   font-weight: 500;
   color: var(--muted);
   white-space: nowrap;
+}
+
+.project-title {
+  margin-top: 0.35rem;
+  font-size: 1.3125rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.project-summary {
+  margin-top: 0.6rem;
+  color: color-mix(in srgb, var(--text) 85%, var(--muted));
 }
 
 .project-label {
@@ -1991,6 +1875,8 @@ html:not(.js) .lang-meter::after {
 
 .project-role {
   margin-top: 0.9rem;
+  font-size: 0.9375rem;
+  color: var(--muted);
 }
 
 .project-highlights {
@@ -2018,28 +1904,18 @@ html:not(.js) .lang-meter::after {
   transform: rotate(45deg);
 }
 
-.is-featured .project-highlights {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: 1.5rem;
+.project-outcome {
+  align-self: flex-start;
+  margin-top: 1rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--live) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--live) 30%, transparent);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--live);
 }
 
-.project-stack-label {
-  margin-top: auto;
-  padding-top: 1.25rem;
-}
-
-.project-stack {
-  margin-top: 0.4rem;
-  padding-top: 0;
-}
-
-@media (max-width: 600px) {
-  .is-featured .project-highlights {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Store / website links on project cards */
 .project-links {
   display: flex;
   flex-wrap: wrap;
@@ -2073,7 +1949,196 @@ html:not(.js) .lang-meter::after {
   color: var(--a1);
 }
 
+.project-stack-label {
+  padding-top: 1.25rem;
+}
+
+.project-stack {
+  margin-top: 0.4rem;
+}
+
+/* Details fill the card so the stack can sit at the bottom edge. */
+.project-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-details .project-stack-label {
+  margin-top: auto;
+}
+
+/* ---------- Featured ---------- */
+
+.project-featured {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  align-items: stretch;
+  background:
+    radial-gradient(120% 140% at 100% 0%, color-mix(in srgb, var(--a1) 12%, transparent), transparent 55%),
+    var(--card);
+}
+
+.project-featured .project-main {
+  padding-right: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.project-featured .project-details {
+  padding-left: clamp(1.5rem, 3vw, 2.5rem);
+  border-left: 1px solid var(--border);
+}
+
+.project-featured .project-title {
+  font-size: clamp(1.5rem, 2.6vw, 1.875rem);
+}
+
+.project-featured .project-summary {
+  font-size: 1.0625rem;
+}
+
+.project-featured .project-highlights {
+  margin-top: 0;
+}
+
+.project-featured .project-main .project-links {
+  margin-top: 1.25rem;
+}
+
+/* ---------- Main grid ---------- */
+
+.projects-main {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+/* ---------- More apps ---------- */
+
+.projects-subhead {
+  margin-top: 1.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.projects-more {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.project-more .project-title {
+  font-size: 1.125rem;
+}
+
+.project-more .project-summary {
+  font-size: 0.9375rem;
+}
+
+/* Store buttons line up along the bottom of the three cards. */
+.project-more .project-links {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+/* ---------- Portfolio banner ---------- */
+
+.project-portfolio {
+  position: relative;
+  justify-content: center;
+  min-height: 7.5rem;
+  margin-top: 0.5rem;
+  transition: border-color 0.25s var(--ease);
+}
+
+.project-portfolio:hover {
+  border-color: color-mix(in srgb, var(--a1) 55%, transparent);
+}
+
+.project-portfolio-label {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.project-portfolio-sub {
+  margin-top: 0.25rem;
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+
+.project-portfolio-icon {
+  position: absolute;
+  top: 50%;
+  right: 1.75rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  color: var(--a1);
+  translate: 0 -50%;
+  transition: transform 0.3s var(--ease);
+}
+
+.project-portfolio:hover .project-portfolio-icon {
+  transform: translate(3px, -3px);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .projects-more {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .project-featured {
+    display: flex;
+  }
+  .project-featured .project-main {
+    padding-right: 0;
+  }
+  .project-featured .project-details {
+    margin-top: 0.9rem;
+    padding-left: 0;
+    border-left: 0;
+  }
+  .projects-main {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Six nav links don't fit on small phones: keep Experience, Projects, Contact. */
+@media (max-width: 560px) {
+  .nav-menu li:nth-child(3),
+  .nav-menu li:nth-child(4) {
+    display: none;
+  }
+}
+
 @media print {
+  .projects-main,
+  .projects-more {
+    display: block;
+  }
+  .project,
+  .project-featured {
+    display: block;
+    margin-bottom: 10pt;
+    break-inside: avoid;
+    background: none;
+  }
+  .project-featured .project-details {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .project-portfolio {
+    display: none !important;
+  }
+  .project-outcome {
+    border: 0;
+    padding: 0;
+    background: none;
+  }
   .project-links a::after {
     content: " (" attr(href) ")";
     font-size: 8pt;
@@ -2082,93 +2147,4 @@ html:not(.js) .lang-meter::after {
   .project-links .icon {
     display: none;
   }
-}
-
-/* =========================================================
-   Projects layout v2: full-width featured card + masonry
-   (replaces the equal-height grid that left gaps in cards)
-   ========================================================= */
-
-.projects-layout {
-  display: grid;
-  gap: 1rem;
-}
-
-.projects-masonry {
-  columns: 3 19rem;
-  column-gap: 1rem;
-  margin-bottom: -1rem; /* cancels the last card's bottom margin */
-}
-
-.projects-masonry > .project {
-  break-inside: avoid;
-  margin-bottom: 1rem;
-}
-
-/* Cards size to their own content: no stretched rows, no pinned stack. */
-.project-stack-label {
-  margin-top: 0;
-  padding-top: 1.25rem;
-}
-
-/* Featured: description left, details right, divided by a hairline. */
-.project.is-featured {
-  grid-column: auto;
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-  align-items: start;
-}
-
-.is-featured .project-main {
-  padding-right: clamp(1.5rem, 3vw, 2.5rem);
-}
-
-.is-featured .project-details {
-  padding-left: clamp(1.5rem, 3vw, 2.5rem);
-  border-left: 1px solid var(--border);
-}
-
-.is-featured .project-highlights {
-  grid-template-columns: 1fr;
-  margin-top: 0;
-}
-
-.is-featured .project-summary {
-  font-size: 1.0625rem;
-}
-
-.project-more {
-  grid-column: auto;
-}
-
-@media (max-width: 760px) {
-  .project.is-featured {
-    grid-template-columns: 1fr;
-  }
-  .is-featured .project-main {
-    padding-right: 0;
-  }
-  .is-featured .project-details {
-    margin-top: 0.9rem;
-    padding-left: 0;
-    border-left: 0;
-  }
-}
-
-@media print {
-  .projects-masonry {
-    columns: 1;
-    margin-bottom: 0;
-  }
-  .project.is-featured {
-    display: block;
-  }
-  .is-featured .project-details {
-    padding-left: 0;
-    border-left: 0;
-  }
-}
-
-.is-featured .project-main .project-links {
-  margin-top: 1.25rem;
 }
