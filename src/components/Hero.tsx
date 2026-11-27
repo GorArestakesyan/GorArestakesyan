@@ -9,7 +9,7 @@ import avatarJpg800 from "../assets/avatar-800.jpg";
 import { trackClick } from "../analytics";
 import CareerTrace from "./CareerTrace";
 import SignalField from "./SignalField";
-import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon } from "./Icons";
+import { DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon, PinIcon } from "./Icons";
 import { useCountUp, useLocalTime } from "../hooks/useMotion";
 
 function Stat({ value, suffix, label, i }: (typeof highlights)[number] & { i: number }) {
@@ -57,10 +57,20 @@ export default function Hero() {
       <div className="container bento">
         <div className="card intro">
           <SignalField />
-          <p className="status">
-            <span className="pulse" aria-hidden="true" />
-            {availability}
-          </p>
+          <div className="intro-top">
+            <p className="status">
+              <span className="pulse" aria-hidden="true" />
+              {availability}
+            </p>
+            <div className="intro-location">
+              <p className="intro-location-city">
+                <PinIcon className="icon" />
+                {personalInfo.location}
+                <span className="intro-location-time">{time} local time (GMT+4)</span>
+              </p>
+              <p className="intro-location-pref">{workPreference}</p>
+            </div>
+          </div>
           <h1 className="hero-name" aria-label={name}>
             {name.split(" ").map((word, w, words) => {
               const offset = words.slice(0, w).join("").length + w;
@@ -159,12 +169,6 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="card place" data-reveal style={{ "--d": 1 } as CSSProperties}>
-          <p className="card-label">Based in</p>
-          <p className="place-city">Yerevan, Armenia</p>
-          <p className="place-time">{time} local time (GMT+4)</p>
-          <p className="place-pref">{workPreference}</p>
-        </div>
 
         <div className="card trace-card" data-reveal>
           <CareerTrace />
